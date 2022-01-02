@@ -4,10 +4,10 @@ import InputBase from "@mui/material/InputBase";
 import { Button } from "@mui/material";
 import { useState } from "react";
 
-const SearchBar = (props) => {
+const SearchBar = (props) => { 
   const [search, setSearch] = useState();
   return (
-    <Paper sx={{ display: "flex", alignItems: "center" }}>
+    <Paper sx={{ display: "flex", alignItems: "center", p:'0.5rem'}}>
       <InputBase
         onChange={(e) => setSearch(e.target.value)}
         sx={{ flex: 1 }}
