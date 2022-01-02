@@ -1,22 +1,20 @@
-import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
+import * as React from "react";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import { Button } from "@mui/material";
+import { useState } from "react";
 
-
-
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const [search, setSearch] = useState();
   return (
     <Paper sx={{ display: "flex", alignItems: "center" }}>
       <InputBase
+        onChange={(e) => setSearch(e.target.value)}
         sx={{ flex: 1 }}
         placeholder="Search Breweries"
         inputProps={{ "aria-label": "Search Breweries" }}
       />
-      <IconButton sx={{ p: "10px" }} aria-label="search">
-        <SearchIcon />
-      </IconButton>
+      <Button onClick={ ()=> props.search(search)}>Search</Button>
     </Paper>
   );
 };

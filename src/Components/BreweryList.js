@@ -38,7 +38,7 @@ export default function BreweryList() {
   return (
     <Container maxWidth="xl">
       <Box sx={{ minWidth: "275" }}>
-        <SearchBar/>
+        <SearchBar search={getBreweries}/>
       </Box>
       <Grid container spacing={4}>
         {breweryCards}
