@@ -24,7 +24,7 @@ const BreweryCard = (props) => {
         <Typography>{props.brewery.city}</Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={openDetails}>View Detail</Button>
+        <Button onClick={openDetails}>View Details</Button>
       </CardActions>
     </Card>
   );
