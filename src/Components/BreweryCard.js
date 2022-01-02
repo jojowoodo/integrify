@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 
-
 const BreweryCard = (props) => {
   let navigate = useNavigate();
 
@@ -17,19 +16,20 @@ const BreweryCard = (props) => {
     navigate(`/${props.brewery.id}`);
   }
   return (
-  <Card sx={{ minWidth: 275 }}>
-    <CardContent>
-      <Typography variant="h5" component="h2">
-        {props.brewery.name}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {props.brewery.brewery_type}
-      </Typography>
-      <Typography>{props.brewery.city}</Typography>
-    </CardContent>
-    <CardActions>
-      <Button onClick={openDetails}>View Detail</Button>
-    </CardActions>
-  </Card>
-  )};
+    <Card sx={{ minWidth: 275, backgroundColor: props.color }}>
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {props.brewery.name}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {props.brewery.brewery_type}
+        </Typography>
+        <Typography>{props.brewery.city}</Typography>
+      </CardContent>
+      <CardActions>
+        <Button onClick={openDetails}>View Detail</Button>
+      </CardActions>
+    </Card>
+  );
+};
 export default BreweryCard;

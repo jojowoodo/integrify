@@ -9,10 +9,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { useEffect } from "react";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-
+import Skeleton from "@mui/material/Skeleton";
 
 const BreweryDetails = () => {
   const navigate = useNavigate();
@@ -29,7 +29,33 @@ const BreweryDetails = () => {
     }
   });
   if (!brewery) {
-    return <div>Loading...</div>;
+    return (
+      <Container maxWidth="sm">
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="center"
+          style={{ minHeight: "100vh" }}
+        >
+          <Card sx={{ minWidth: 275, p:'3rem'  }}>
+            <CardContent>
+              <Skeleton animation="wave" height={20} width="60%" />
+              <Skeleton animation="wave" height={10} width="30%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+              <Skeleton animation="wave" height={10} width="40%" />
+            </CardContent>
+            <CardActions>
+            <Button sx={{mt:'3rem'}} onClick={goBack}>Go back</Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      </Container>
+    );
   }
 
   function goBack() {
@@ -37,8 +63,13 @@ const BreweryDetails = () => {
   }
   return (
     <Container maxWidth="sm">
-      <Grid container alignItems="center" style={{ minHeight: "100vh" }}>
-        <Card sx={{ minWidth: 275 }}>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "100vh" }}
+      >
+        <Card sx={{ minWidth: 275, p:'3rem' }}>
           <CardContent>
             <Typography variant="h5" component="h2">
               {brewery.name}
@@ -55,7 +86,7 @@ const BreweryDetails = () => {
             <Typography>{brewery.postal_code}</Typography>
           </CardContent>
           <CardActions>
-            <Button onClick={goBack}>Go back</Button>
+            <Button sx={{mt:'3rem'}} onClick={goBack}>Go back</Button>
           </CardActions>
         </Card>
       </Grid>
